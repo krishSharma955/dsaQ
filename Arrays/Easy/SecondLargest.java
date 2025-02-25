@@ -35,7 +35,7 @@ public class SecondLargest {
     public static int secondLargestIII(int arr[]) { //Optimized
         int largest = arr[0];
         int secLargest = Integer.MIN_VALUE;
-        for(int i = 1; i<arr.length-1; i++) {
+        for(int i = 1; i<arr.length; i++) {
             if(arr[i]>largest) {
                 secLargest = largest;
                 largest = arr[i];
@@ -43,15 +43,13 @@ public class SecondLargest {
             else if(arr[i]<largest && arr[i]>secLargest) {
                 secLargest = arr[i];
             }
-            else {
-                secLargest = -1;
-            }
         }
-        return secLargest;
+        if(secLargest == Integer.MIN_VALUE) return -1;
+        else return secLargest;
     }
     //TC - O(N)
     public static void main(String[] args) {
-        int arr[] = {5,7,9,9,2,1};
+        int arr[] = {12,35,1,10,34,1};
         System.out.println(secondLargest(arr));
         System.out.println(secondLargestII(arr));
         System.out.println(secondLargestIII(arr));
